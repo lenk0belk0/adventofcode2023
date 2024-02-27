@@ -1,17 +1,28 @@
-function trebuchet(input: string[]): string
+function trebuchet_part_1(input: string[]): string
 {
-    let digits = input.map((row: string) => Number(
-        `${getFirstDigitFromInputString(row)}${getLastDigitFromInputString(row)}`)
-    );
-
+    let digits = mapInputStringIntoDigits(input, getNumericDigitsRegexp());
     let sum = digits.reduce((sum, currentDigit) => sum + currentDigit, 0);
 
     return `${sum}`;
 }
 
-function getFirstDigitFromInputString(input: string): number
+function trebuchet_part_2(input: string[]): string
 {
-    let matches = matchOverlap(input, getDigitsRegexp());
+    let digits = mapInputStringIntoDigits(input, getLetteredDigitsRegexp());
+    let sum = digits.reduce((sum, currentDigit) => sum + currentDigit, 0);
+
+    return `${sum}`;
+}
+
+function mapInputStringIntoDigits(input: string[], digitsRegexp): number[] {
+    return input.map((row: string) => Number(
+        `${getFirstDigitFromInputString(row, digitsRegexp)}${getLastDigitFromInputString(row, digitsRegexp)}`)
+    );
+}
+
+function getFirstDigitFromInputString(input: string, regexp: RegExp): number
+{
+    let matches = matchOverlap(input, regexp);
 
     if (matches && matches.length > 0) {
         return mapNumberFromLetteredDigit(matches[0]);
@@ -20,9 +31,9 @@ function getFirstDigitFromInputString(input: string): number
     return 0;
 }
 
-function getLastDigitFromInputString(input: string): number
+function getLastDigitFromInputString(input: string, regexp: RegExp): number
 {
-    let matches = matchOverlap(input, getDigitsRegexp());
+    let matches = matchOverlap(input, regexp);
 
     if (matches && matches.length > 0) {
         return mapNumberFromLetteredDigit(matches[matches.length - 1]);
@@ -31,7 +42,12 @@ function getLastDigitFromInputString(input: string): number
     return 0;
 }
 
-function getDigitsRegexp(): RegExp
+function getNumericDigitsRegexp(): RegExp
+{
+    return /([1-9])/gi;
+}
+
+function getLetteredDigitsRegexp(): RegExp
 {
     return /([1-9]|one|two|three|four|five|six|seven|eight|nine)/gi;
 }

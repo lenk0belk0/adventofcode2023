@@ -1,5 +1,4 @@
-function readInput(id: string): string[]
-{
+function readInput(id: string): string[] {
     let input = document.getElementById(id) as HTMLInputElement;
 
     if (input) {
@@ -11,7 +10,7 @@ function readInput(id: string): string[]
     return [];
 }
 
-function writeOutput(id: string, value: string) {
+function writeOutput(id: string, value: string): void {
     let output = document.getElementById(id) as HTMLInputElement;
 
     if (output) {

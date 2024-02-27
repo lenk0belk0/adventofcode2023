@@ -8,19 +8,8 @@
 <body>
 <div class="container">
 <h1>Adventofcode2023</h1>
-    <div>
-        <div class="mb-3">
-            <label for="input">Input</label>
-            <textarea class="form-control" id="input"></textarea>
-        </div>
-        <div class="mb-3">
-            <label for="output">Output</label>
-            <input class="form-control" id="output" />
-        </div>
-    </div>
-    <hr />
     <table class="table">
-        <caption class="caption-top">Calendar</caption>
+        <caption class="caption-top">December</caption>
         <thead class="table-light">
             <th>Mon</th>
             <th>Tue</th>
@@ -37,7 +26,32 @@
                 <td></td>
                 <td></td>
                 <td>
-                    <button type="button" class="btn btn-light" onclick="writeOutput('output', trebuchet(readInput('input')))">Day 1: Trebuchet</button>
+                    <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#Trebuchet">Day 1: Trebuchet</button>
+                    <div class="modal fade" id="Trebuchet">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5">Day 1: Trebuchet</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="mb-3">
+                                        <label for="cube_conundrum_input">Input</label>
+                                        <textarea class="form-control" id="trebuchet_input"></textarea>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="cube_conundrum_output">Output</label>
+                                        <input class="form-control" id="trebuchet_output" />
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary" onclick="writeOutput('trebuchet_output', trebuchet_part_1(readInput('trebuchet_input')))">Part 1</button>
+                                    <button type="button" class="btn btn-primary" onclick="writeOutput('trebuchet_output', trebuchet_part_2(readInput('trebuchet_input')))">Part 2</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </td>
                 <td>
                     <button type="button" class="btn btn-light" disabled>Day 2: Cube Conundrum</button>
