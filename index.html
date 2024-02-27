@@ -54,7 +54,32 @@
                     </div>
                 </td>
                 <td>
-                    <button type="button" class="btn btn-light" disabled>Day 2: Cube Conundrum</button>
+                    <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#CubeConundrum">Day 2: Cube Conundrum</button>
+                    <div class="modal fade" id="CubeConundrum">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5">Day 2: Cube Conundrum</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="mb-3">
+                                        <label for="cube_conundrum_input">Input</label>
+                                        <textarea class="form-control" id="cube_conundrum_input"></textarea>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="cube_conundrum_output">Output</label>
+                                        <input class="form-control" id="cube_conundrum_output" />
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary" onclick="writeOutput('cube_conundrum_output', cube_conundrum_part_1(readInput('cube_conundrum_input')))">Part 1</button>
+                                    <button type="button" class="btn btn-primary" onclick="writeOutput('cube_conundrum_output', cube_conundrum_part_2(readInput('cube_conundrum_input')))">Part 2</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </td>
                 <td>
                     <button type="button" class="btn btn-light" disabled>Day 3: Gear Ratios</button>
@@ -105,5 +130,6 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 <script src="./src/lib/InputOutput.js"></script>
 <script src="./src/day1/Trebuchet.js"></script>
+<script src="./src/day2/CubeConundrum.js"></script>
 </body>
 </html>
